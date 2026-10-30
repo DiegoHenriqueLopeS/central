@@ -1,0 +1,12 @@
+CENTRAL - LOGIN + SINCRONIZAÇÃO SUPABASE
+
+1) No Supabase, abra SQL Editor > New query. Cole o conteúdo de CENTRAL_supabase_setup.sql e clique Run.
+2) Publique CENTRAL_Supabase_Login.html como index.html em uma hospedagem estática (por exemplo Vercel).
+3) No Supabase: Authentication > URL Configuration. Configure Site URL para a URL publicada e adicione essa URL em Redirect URLs.
+4) Entre com o usuário já criado: dihlopes023@gmail.com e a senha que você definiu no Supabase.
+5) Dentro do CENTRAL, abra Configurações e backup > Importar backup. Selecione seu arquivo JSON antigo. Aguarde aparecer “Backup importado e salvo na nuvem!”.
+
+IMPORTANTE: mantenha seu CENTRAL antigo e o arquivo JSON original até confirmar que os dados estão na nuvem.
+A chave sb_publishable é pública e está no HTML. A segurança vem do RLS no SQL. Nunca coloque service_role/secret key no HTML.
+
+Esta versão faz login e sincroniza o banco JSON do CENTRAL com Supabase. Não inclui ainda o recurso antigo de QR dinâmico hospedado no Netlify; essa migração é uma etapa separada.
