@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#0b0e13"><link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0e13'/%3E%3Cg fill='none' stroke='%239ba8ff' stroke-width='5' stroke-linecap='round'%3E%3Cpath d='M25 13a20 20 0 0 1 0 38M35 21a12 12 0 0 1 0 22M45 28a5 5 0 0 1 0 8'/%3E%3C/g%3E%3Ccircle cx='15' cy='32' r='3' fill='%239ba8ff'/%3E%3C/svg%3E">
 <title>CENTRAL — Gestão de Negócios</title>
 <style>
 :root{--bg:#0b0e13;--panel:#121720;--panel2:#171e29;--line:#273140;--text:#eef2f8;--muted:#95a2b5;--accent:#8b9cff;--green:#58d6a0;--red:#ff7b86;--yellow:#f4c96b}
@@ -15,7 +15,7 @@
 <body>
 <div id="authGate" style="position:fixed;inset:0;z-index:9999;background:#0b0e13;display:flex;align-items:center;justify-content:center;padding:20px">
  <form id="loginForm" style="width:min(420px,100%);background:#121720;border:1px solid #273140;border-radius:18px;padding:28px;box-shadow:0 20px 80px #0008">
-  <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px"><div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#9ba8ff,#6b7df2);color:#0c1020;display:grid;place-items:center;font-weight:900;font-size:20px">C</div><div><strong style="font-size:20px;letter-spacing:1px">CENTRAL</strong><div style="color:#95a2b5;font-size:12px">Acesso administrativo</div></div></div>
+  <div style="display:flex;align-items:center;gap:12px;margin-bottom:22px"><div style="width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#9ba8ff,#6b7df2);color:#0c1020;display:grid;place-items:center;font-weight:900;font-size:20px"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 8a11 11 0 0 1 0 16"/><path d="M17 11a7 7 0 0 1 0 10"/><path d="M22 14a3 3 0 0 1 0 4"/><circle cx="7" cy="16" r="1.6" fill="currentColor" stroke="none"/></svg></div><div><strong style="font-size:20px;letter-spacing:1px">CENTRAL</strong><div style="color:#95a2b5;font-size:12px">Acesso administrativo</div></div></div>
   <label style="display:block;color:#95a2b5;font-size:12px;margin:12px 0 5px">E-mail</label><input id="authEmail" type="email" autocomplete="username" required value="dihlopes023@gmail.com" style="width:100%;padding:12px;border:1px solid #273140;border-radius:9px;background:#0c1118;color:#eef2f8">
   <label style="display:block;color:#95a2b5;font-size:12px;margin:12px 0 5px">Senha</label><input id="authPassword" type="password" autocomplete="current-password" required style="width:100%;padding:12px;border:1px solid #273140;border-radius:9px;background:#0c1118;color:#eef2f8">
   <button id="loginButton" type="submit" style="width:100%;margin-top:18px;padding:12px;border:0;border-radius:9px;background:#8b9cff;color:#0b1020;font-weight:750;cursor:pointer">Entrar no CENTRAL</button>
@@ -25,7 +25,7 @@
 </div>
 <div class="app" id="centralApp" style="display:none">
 <aside class="side" id="sidebar">
- <div class="brand"><div class="logo">C</div><div><strong>CENTRAL</strong><small>Gestão de negócios</small></div></div>
+ <div class="brand"><div class="logo" style="color:#0c1020"><svg viewBox="0 0 32 32" width="25" height="25" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 8a11 11 0 0 1 0 16"/><path d="M17 11a7 7 0 0 1 0 10"/><path d="M22 14a3 3 0 0 1 0 4"/><circle cx="7" cy="16" r="1.6" fill="currentColor" stroke="none"/></svg></div><div><strong>CENTRAL</strong><small>Gestão de negócios</small></div></div>
  <nav class="nav" id="nav">
   <div class="navlabel">VISÃO GERAL</div>
   <button data-page="dashboard" class="active"><span class="ico">◫</span>Dashboard</button>
