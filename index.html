@@ -10,6 +10,7 @@
 @media(max-width:700px){.app{grid-template-columns:1fr}.side{position:fixed;z-index:4;width:245px;transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.mobilemenu{display:inline-block}.top{height:62px}.content{padding:18px 12px}.cards{gap:8px}.card{padding:13px}.metric{font-size:21px}.pagehead{align-items:center}.pagehead h1{font-size:22px}.notegrid{grid-template-columns:1fr}.quickgrid{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.formfield.full{grid-column:auto}}
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
 </head>
 <body>
 <div id="authGate" style="position:fixed;inset:0;z-index:9999;background:#0b0e13;display:flex;align-items:center;justify-content:center;padding:20px">
@@ -39,6 +40,7 @@
   <button data-page="projetos"><span class="ico">◈</span>Projetos e metas</button>
   <button data-page="arquivos"><span class="ico">▤</span>Central de arquivos</button>
   <button data-page="relatorios"><span class="ico">▥</span>Relatórios</button>
+  <button data-page="qrs"><span class="ico">▧</span>QR Codes dinâmicos</button>
   <div class="navlabel">SISTEMA</div>
   <button data-page="config"><span class="ico">⚙</span>Configurações e backup</button>
  </nav>
@@ -66,7 +68,7 @@ let page='dashboard', editing=null, modalKind=null;
 let supabaseClient=null, currentUser=null, cloudSaveTimer=null;
 function setCloudStatus(msg,ok=true){const el=document.getElementById('cloudStatus');if(el){el.textContent=(ok?'● ':'⚠ ')+msg;el.style.color=ok?'#58d6a0':'#ff9aa3'}}
 function save(){try{localStorage.setItem('central_db_v1',JSON.stringify(db));if(currentUser&&supabaseClient){setCloudStatus('Salvando na nuvem…');clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(async()=>{try{const {error}=await supabaseClient.from('central_data').upsert({user_id:currentUser.id,data:db,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;setCloudStatus('Sincronizado')}catch(e){console.error(e);setCloudStatus('Falha na nuvem: '+(e.message||'verifique a conexão'),false)}},450)}return true}catch(e){alert('Não foi possível salvar: o armazenamento do navegador pode estar cheio. Exporte um backup.');return false}}
-const pages={dashboard:'Dashboard',visitas:'Comercial e visitas',clientes:'Clientes',vendas:'Vendas',estoque:'Produtos e estoque',financeiro:'Financeiro',ideias:'Ideias e conhecimento',projetos:'Projetos e metas',arquivos:'Central de arquivos',relatorios:'Relatórios',config:'Configurações e backup'};
+const pages={dashboard:'Dashboard',visitas:'Comercial e visitas',clientes:'Clientes',vendas:'Vendas',estoque:'Produtos e estoque',financeiro:'Financeiro',ideias:'Ideias e conhecimento',projetos:'Projetos e metas',arquivos:'Central de arquivos',relatorios:'Relatórios',qrs:'QR Codes dinâmicos',config:'Configurações e backup'};
 function id(){return Date.now()+Math.floor(Math.random()*999)}
 function sum(arr,fn){return arr.reduce((a,x)=>a+Number(fn(x)||0),0)}
 function getProduct(id){return db.products.find(p=>String(p.id)===String(id))}
@@ -95,8 +97,18 @@ function render(){
  else if(page==='projetos')root.innerHTML=projectsPage();
  else if(page==='arquivos')root.innerHTML=filesPage();
  else if(page==='relatorios')root.innerHTML=reportsPage();
+ else if(page==='qrs'){root.innerHTML=qrPage();loadQrs();}
  else root.innerHTML=configPage();
 }
+
+function qrPage(){return \`<div class="pagehead"><div><h1>QR Codes dinâmicos</h1><p>Altere o destino quando quiser, sem precisar imprimir outro código.</p></div><button class="btn primary" onclick="createQr()">＋ Novo QR Code</button></div><div class="notice">Os primeiros 50 códigos serão criados automaticamente. Os novos códigos são ilimitados. Códigos sem destino configurado ficam inativos.</div><section class="panel" style="margin-top:16px"><div class="toolbar" style="justify-content:space-between"><strong id="qrCount">Carregando…</strong><button class="btn" onclick="loadQrs()">Atualizar</button></div><div id="qrList" style="margin-top:14px"></div></section>\`;}
+let qrRows=[];
+async function loadQrs(){const root=document.getElementById('qrList');if(!root||!supabaseClient||!currentUser)return;root.innerHTML='<p class="muted">Carregando códigos…</p>';try{let {data,error}=await supabaseClient.from('central_qr_codes').select('*').order('code');if(error)throw error;qrRows=data||[];if(!qrRows.length){const rows=Array.from({length:50},(_,i)=>({owner_id:currentUser.id,code:'QR-'+String(i+1).padStart(3,'0'),name:'QR '+String(i+1).padStart(3,'0'),destination_url:'https://example.com',active:false}));const ins=await supabaseClient.from('central_qr_codes').insert(rows);if(ins.error)throw ins.error;({data,error}=await supabaseClient.from('central_qr_codes').select('*').order('code'));if(error)throw error;qrRows=data||[];}renderQrList();}catch(e){root.innerHTML='<p class="muted">Erro ao carregar QR Codes: '+esc(e.message)+'</p>';}}
+function renderQrList(){const root=document.getElementById('qrList');if(!root)return;document.getElementById('qrCount').textContent=qrRows.length+' códigos cadastrados';root.innerHTML=qrRows.map(q=>\`<div class="panel" style="margin:10px 0;display:flex;gap:16px;align-items:center;flex-wrap:wrap"><div style="width:112px;height:112px;background:#fff;padding:7px;border-radius:8px;display:grid;place-items:center" id="qrimg-\${q.id}"></div><div style="flex:1;min-width:230px"><strong>\${esc(q.code)} — \${esc(q.name)}</strong><p class="muted" style="word-break:break-all;margin:7px 0">\${esc(q.destination_url)}</p><span class="pill \${q.active?'green':'red'}">\${q.active?'Ativo':'Inativo'}</span><div class="toolbar" style="margin-top:10px"><button class="btn small" onclick="editQr('\${q.id}')">Editar</button><button class="btn small" onclick="downloadQr('\${q.id}')">↓ Baixar PNG</button></div></div></div>\`).join('');qrRows.forEach(q=>{const el=document.getElementById('qrimg-'+q.id);if(el&&window.QRCode)new QRCode(el,{text:location.origin+'/api/qr/'+encodeURIComponent(q.code),width:98,height:98});});}
+async function createQr(){const next=Math.max(0,...qrRows.map(q=>Number((q.code.match(/(\d+)$/)||[])[1]||0)))+1;const code='QR-'+String(next).padStart(3,'0');const name=prompt('Nome para o novo QR Code:',code);if(name===null)return;const dest=prompt('URL de destino (http:// ou https://):','https://');if(dest===null)return;if(!/^https?:\/\//i.test(dest.trim())){alert('Informe uma URL válida iniciada por http:// ou https://');return;}const {data,error}=await supabaseClient.from('central_qr_codes').insert({owner_id:currentUser.id,code,name:name.trim()||code,destination_url:dest.trim(),active:true}).select().single();if(error){alert('Erro ao criar: '+error.message);return;}qrRows.push(data);renderQrList();}
+async function editQr(id){const q=qrRows.find(x=>x.id===id);if(!q)return;const name=prompt('Nome do QR Code:',q.name);if(name===null)return;const dest=prompt('URL de destino:',q.destination_url);if(dest===null)return;if(!/^https?:\/\//i.test(dest.trim())){alert('Informe uma URL válida iniciada por http:// ou https://');return;}const active=confirm('Deixar este QR Code ATIVO?\nOK = ativo | Cancelar = inativo');const {data,error}=await supabaseClient.from('central_qr_codes').update({name:name.trim()||q.code,destination_url:dest.trim(),active,updated_at:new Date().toISOString()}).eq('id',id).select().single();if(error){alert('Erro ao salvar: '+error.message);return;}qrRows=qrRows.map(x=>x.id===id?data:x);renderQrList();}
+function downloadQr(id){const q=qrRows.find(x=>x.id===id),el=document.getElementById('qrimg-'+id);if(!q||!el)return;const canvas=el.querySelector('canvas'),img=el.querySelector('img'),url=canvas?canvas.toDataURL('image/png'):img?.src;if(!url){alert('QR ainda está sendo gerado. Tente novamente.');return;}const a=document.createElement('a');a.href=url;a.download=q.code+'.png';a.click();}
+
 function dashboard(){
  const revenue=sum(db.sales.filter(s=>s.status!=='Cancelada'),s=>s.total),cost=sum(db.sales.filter(s=>s.status!=='Cancelada'),saleCost),profit=revenue-cost,visits=db.visits.length,converted=db.visits.filter(v=>v.status==='Comprou').length,conv=visits?Math.round(converted/visits*100):0;
  const cityCounts={};db.sales.filter(s=>s.status!=='Cancelada').forEach(s=>{let c=s.city||getClient(s.clientId)?.city||'Não informado';cityCounts[c]=(cityCounts[c]||0)+1});
