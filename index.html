@@ -65,6 +65,11 @@ const seed={products:[{id:1,name:'Placa NFC Google',type:'Produto físico',categ
 let db; try{db=JSON.parse(localStorage.getItem('central_db_v1'))||seed}catch{db=seed}
 for(const k of Object.keys(seed))if(!Array.isArray(db[k]))db[k]=[];
 let page='dashboard', editing=null, modalKind=null;
+let selectedOperationId='all';
+function operationFilter(){return selectedOperationId==='all'?null:getLot(selectedOperationId)}
+function operationSelector(){return `<select class="field" onchange="selectedOperationId=this.value;render()"><option value="all" ${selectedOperationId==='all'?'selected':''}>Geral — todas as operações</option>${db.lots.map(l=>`<option value="${l.id}" ${String(selectedOperationId)===String(l.id)?'selected':''}>${esc(l.name)}</option>`).join('')}</select>`}
+function operationSales(){const l=operationFilter();return db.sales.filter(x=>!l||String(x.lotId)===String(l.id))}
+function operationExpenses(){const l=operationFilter();return db.expenses.filter(x=>!l||String(x.lotId)===String(l.id))}
 let supabaseClient=null, currentUser=null, cloudSaveTimer=null;
 function setCloudStatus(msg,ok=true){const el=document.getElementById('cloudStatus');if(el){el.textContent=(ok?'● ':'⚠ ')+msg;el.style.color=ok?'#58d6a0':'#ff9aa3'}}
 function save(){try{localStorage.setItem('central_db_v1',JSON.stringify(db));if(currentUser&&supabaseClient){setCloudStatus('Salvando na nuvem…');clearTimeout(cloudSaveTimer);cloudSaveTimer=setTimeout(async()=>{try{const {error}=await supabaseClient.from('central_data').upsert({user_id:currentUser.id,data:db,updated_at:new Date().toISOString()},{onConflict:'user_id'});if(error)throw error;setCloudStatus('Sincronizado')}catch(e){console.error(e);setCloudStatus('Falha na nuvem: '+(e.message||'verifique a conexão'),false)}},450)}return true}catch(e){alert('Não foi possível salvar: o armazenamento do navegador pode estar cheio. Exporte um backup.');return false}}
