@@ -8,6 +8,79 @@
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--text);font:14px/1.5 Inter,system-ui,Segoe UI,Arial,sans-serif}button,input,select,textarea{font:inherit}button{cursor:pointer}.app{display:grid;grid-template-columns:245px 1fr;min-height:100vh}.side{background:#0e1219;border-right:1px solid var(--line);padding:22px 14px;position:sticky;top:0;height:100vh;overflow:auto}.brand{display:flex;gap:11px;align-items:center;padding:0 9px 24px}.logo{width:37px;height:37px;border-radius:12px;background:linear-gradient(135deg,#9ba8ff,#6b7df2);color:#0c1020;display:grid;place-items:center;font-weight:900;font-size:18px}.brand strong{display:block;font-size:16px;letter-spacing:1.5px}.brand small{color:var(--muted)}.navlabel{color:#69788e;font-size:10px;letter-spacing:1.4px;padding:15px 11px 7px}.nav button{width:100%;display:flex;align-items:center;gap:11px;padding:10px 12px;margin:2px 0;border:0;border-radius:9px;background:transparent;color:#b8c2d1;text-align:left}.nav button:hover,.nav button.active{background:#20293a;color:white}.nav .ico{width:20px;text-align:center;color:#9ba8ff}.sidefoot{font-size:11px;color:#718096;border-top:1px solid var(--line);padding:16px 10px;margin-top:18px}.main{min-width:0}.top{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 30px;gap:16px;background:#0b0e13}.top small{color:var(--muted)}.topright{display:flex;gap:10px;align-items:center}.content{padding:28px 30px;max-width:1500px;margin:auto}.pagehead{display:flex;align-items:flex-start;justify-content:space-between;gap:18px;margin-bottom:24px}.pagehead h1{font-size:25px;margin:0 0 4px;letter-spacing:-.5px}.pagehead p{color:var(--muted);margin:0}.btn{border:1px solid var(--line);background:var(--panel2);color:var(--text);border-radius:9px;padding:9px 13px}.btn.primary{background:#8b9cff;color:#0b1020;border-color:#8b9cff;font-weight:700}.btn.danger{color:var(--red)}.btn.small{padding:5px 8px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px;margin-bottom:20px}.card,.panel{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px;min-width:0}.metric-label{color:var(--muted);font-size:12px}.metric{font-size:25px;font-weight:750;letter-spacing:-.7px;margin:7px 0}.metric-sub{font-size:11px;color:var(--muted)}.layout2{display:grid;grid-template-columns:1.25fr 1fr;gap:16px}.panel h3{font-size:14px;margin:0 0 14px}.muted{color:var(--muted)}.toolbar{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-bottom:14px}.field{background:#0c1118;color:var(--text);border:1px solid var(--line);border-radius:8px;padding:9px 10px;min-width:0;max-width:100%}.field:focus{outline:1px solid var(--accent);border-color:var(--accent)}.search{flex:1;min-width:180px}.tablewrap{overflow:auto;border:1px solid var(--line);border-radius:10px}table{border-collapse:collapse;width:100%;min-width:680px}th,td{padding:11px 12px;text-align:left;border-bottom:1px solid #222c39;white-space:nowrap}th{font-size:11px;letter-spacing:.5px;color:#8f9cb0;background:#151c27;font-weight:650}td{font-size:12px}tr:last-child td{border-bottom:0}.empty{text-align:center;padding:30px;color:var(--muted)}.pill{display:inline-block;padding:3px 8px;border-radius:20px;background:#252e3d;color:#c6d1e1;font-size:11px}.pill.green{color:var(--green);background:#15352d}.pill.red{color:var(--red);background:#3a2029}.pill.yellow{color:var(--yellow);background:#3b3220}.barrow{display:grid;grid-template-columns:110px 1fr 38px;gap:10px;align-items:center;margin:13px 0;font-size:12px}.bar{height:8px;border-radius:10px;background:#222c3a;overflow:hidden}.bar i{display:block;height:100%;background:var(--accent);border-radius:10px}.quickgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.quick{padding:14px;border:1px solid var(--line);border-radius:10px;background:#151c27;text-align:left;color:var(--text)}.quick span{display:block;color:var(--muted);font-size:12px;margin-top:4px}.notegrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.notecard{background:#151c27;border:1px solid var(--line);border-radius:12px;padding:15px;min-height:130px}.notecard h3{margin:0 0 7px}.notecard p{color:var(--muted);white-space:pre-wrap;overflow:hidden;max-height:70px}.modalback{position:fixed;inset:0;background:#000a;display:none;align-items:center;justify-content:center;padding:18px;z-index:5}.modalback.show{display:flex}.modal{background:#111720;border:1px solid var(--line);border-radius:16px;width:min(700px,100%);max-height:92vh;overflow:auto;padding:22px}.modalhead{display:flex;justify-content:space-between;align-items:center;margin-bottom:16px}.modalhead h2{font-size:18px;margin:0}.formgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.formfield{display:flex;flex-direction:column;gap:5px}.formfield label{font-size:12px;color:var(--muted)}.formfield.full{grid-column:1/-1}.formfield textarea{min-height:85px;resize:vertical}.formactions{display:flex;justify-content:flex-end;gap:8px;margin-top:18px}.notice{background:#292619;border:1px solid #53482b;color:#e7d6a4;border-radius:10px;padding:12px 14px;font-size:12px;margin-bottom:16px}.footerhint{font-size:11px;color:var(--muted);margin-top:16px}.hidden{display:none!important}.mobilemenu{display:none}
 @media(max-width:1000px){.cards{grid-template-columns:repeat(2,1fr)}.layout2{grid-template-columns:1fr}.notegrid{grid-template-columns:repeat(2,1fr)}.content{padding:22px 18px}.top{padding:0 18px}}
 @media(max-width:700px){.app{grid-template-columns:1fr}.side{position:fixed;z-index:4;width:245px;transform:translateX(-100%);transition:.2s}.side.open{transform:translateX(0)}.mobilemenu{display:inline-block}.top{height:62px}.content{padding:18px 12px}.cards{gap:8px}.card{padding:13px}.metric{font-size:21px}.pagehead{align-items:center}.pagehead h1{font-size:22px}.notegrid{grid-template-columns:1fr}.quickgrid{grid-template-columns:1fr 1fr}.formgrid{grid-template-columns:1fr}.formfield.full{grid-column:auto}}
+
+/* CENTRAL visual refresh — Silver Norte */
+:root{--bg:#090d14;--panel:#101824;--panel2:#151f2d;--line:#202d3d;--text:#f2f5fb;--muted:#91a0b4;--accent:#8ea5ff;--green:#55d6a4;--red:#ff7e8b;--yellow:#f2c66d}
+body{background:radial-gradient(ellipse at 78% -12%,#1b2a45 0,transparent 38%),var(--bg);letter-spacing:.01em}
+.app{grid-template-columns:258px minmax(0,1fr)}
+.side{background:rgba(10,15,24,.94);border-right:1px solid #1c2939;padding:25px 16px;backdrop-filter:blur(18px)}
+.brand{padding:0 10px 28px}.logo{width:40px;height:40px;border-radius:13px;box-shadow:0 7px 24px #8298ff24}
+.brand strong{font-size:15px;letter-spacing:2px}.brand small{font-size:11px;letter-spacing:.2px}
+.navlabel{font-size:9px;color:#66758b;letter-spacing:1.8px;padding:18px 12px 8px}
+.nav button{padding:11px 13px;border:1px solid transparent;border-radius:10px;color:#aebbd0;transition:background .18s,border-color .18s,transform .18s}
+.nav button:hover{background:#151f2d;border-color:#25354a;transform:translateX(2px)}
+.nav button.active{background:linear-gradient(100deg,#263654,#1a2639);border-color:#34496a;color:#fff;box-shadow:inset 3px 0 #9aafff}
+.nav .ico{font-size:16px;color:#9eb0ff}
+.sidefoot{border-color:#202d3d;color:#73839a;line-height:1.8}
+.top{height:76px;padding:0 34px;background:rgba(9,13,20,.78);backdrop-filter:blur(16px);border-color:#1b2736}
+.top>div:first-child strong{font-size:13px;letter-spacing:.2px}.top small{font-size:11px}
+.content{max-width:1600px;padding:32px 34px 44px}
+.pagehead{margin-bottom:22px}.pagehead h1{font-size:27px;letter-spacing:-.8px}.pagehead p{font-size:12px;color:#94a3b8}
+.btn{border-radius:10px;background:#131e2b;border-color:#29384b;transition:.18s}
+.btn:hover{border-color:#7189c7;background:#1a2940}
+.btn.primary{background:linear-gradient(135deg,#a9b8ff,#8198f7);border:0;color:#0b1220;box-shadow:0 7px 20px #8198f729}
+.card,.panel{background:linear-gradient(145deg,rgba(18,27,40,.98),rgba(14,22,33,.98));border:1px solid #243246;border-radius:16px;box-shadow:0 12px 35px #00000014}
+.panel{padding:20px}.panel h3{font-size:13px;letter-spacing:.15px;color:#e8edf7}
+.cards{gap:13px}.card{padding:17px 18px;position:relative;overflow:hidden}
+.card:after{content:"";position:absolute;width:90px;height:90px;border-radius:50%;right:-42px;top:-46px;background:#93a8ff0b}
+.metric-label{font-size:11px;letter-spacing:.25px;color:#9aa9bd}
+.metric{font-size:26px;letter-spacing:-1px;margin:9px 0 4px}.metric-sub{font-size:10px;color:#8190a5}
+.field{background:#0b121c;border-color:#28374a;border-radius:10px}
+.tablewrap{border-color:#253347;border-radius:12px}
+th{background:#151f2e;color:#94a5bd;font-size:10px;letter-spacing:.8px}
+td{color:#d2dbea;border-color:#202d3d}
+tr:hover td{background:#ffffff05}
+.pill{border:1px solid #314158;background:#1a2636}
+.quick{border-radius:12px;background:#121e2c;border-color:#29394f;padding:15px;transition:.18s}
+.quick:hover{background:#1a2a40;border-color:#647db7;transform:translateY(-2px)}
+.quick span{font-size:11px;color:#91a1b7}
+.bar{background:#202d3e}.bar i{background:linear-gradient(90deg,#718bf0,#a7b5ff)}
+.modal{background:#101925;border-color:#2b3b50;box-shadow:0 25px 90px #0009}
+@media(max-width:1000px){.content{padding:24px 18px}}
+@media(max-width:700px){.app{grid-template-columns:1fr}.content{padding:20px 13px}.top{padding:0 14px}.cards{grid-template-columns:repeat(2,minmax(0,1fr))}.metric{font-size:21px}}
+/* Dashboard composition */
+.dash-intro{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:22px 24px;margin-bottom:16px;border:1px solid #344666;border-radius:17px;background:radial-gradient(circle at 85% 20%,#526da833,transparent 34%),linear-gradient(110deg,#18263a,#111b2a 72%);overflow:hidden}
+.dash-intro h1{font-size:25px;margin:0 0 5px;letter-spacing:-.8px}.dash-intro p{margin:0;color:#a6b5ca;font-size:12px}
+.dash-kicker{font-size:9px;letter-spacing:1.7px;text-transform:uppercase;color:#aabaff;margin-bottom:8px}
+.dash-intro .toolbar{margin:0;justify-content:flex-end}
+.dash-stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-bottom:16px}
+.dash-stat{padding:17px 18px;border:1px solid #253449;border-radius:15px;background:linear-gradient(145deg,#131e2d,#101824);min-width:0}
+.dash-stat-top{display:flex;align-items:center;justify-content:space-between;color:#9aa9bd;font-size:11px}
+.dash-stat-icon{width:29px;height:29px;border-radius:9px;display:grid;place-items:center;background:#8ea5ff18;color:#a8b8ff;font-size:15px}
+.dash-stat-value{font-size:25px;font-weight:760;letter-spacing:-1px;margin:10px 0 3px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.dash-stat-foot{font-size:10px;color:#8392a7}
+.dash-grid{display:grid;grid-template-columns:minmax(0,1.45fr) minmax(280px,.85fr);gap:15px;margin-bottom:15px}
+.dash-panel-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:16px}
+.dash-panel-head h3{margin:0}.dash-panel-head small{font-size:10px;color:#8090a6}
+.dash-chart{height:172px;display:flex;align-items:flex-end;gap:10px;padding:12px 2px 0;border-bottom:1px solid #29364a}
+.dash-month{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;height:100%;gap:7px;min-width:0}
+.dash-month strong{font-size:9px;color:#aab8cc;font-weight:600}
+.dash-month i{display:block;width:min(34px,70%);min-height:3px;border-radius:7px 7px 2px 2px;background:linear-gradient(180deg,#aabaff,#647fe8);box-shadow:0 0 16px #8298ff22}
+.dash-month span{font-size:9px;color:#77879e}
+.dash-activity{display:flex;flex-direction:column;gap:0}
+.dash-activity-item{display:flex;align-items:flex-start;gap:11px;padding:11px 0;border-bottom:1px solid #202d3d}
+.dash-activity-item:last-child{border:0}
+.dash-activity-dot{width:8px;height:8px;border-radius:50%;background:#91a7ff;margin:5px 0 0;box-shadow:0 0 0 4px #91a7ff17;flex:none}
+.dash-activity-item strong{display:block;font-size:11px;color:#e3eaf5;font-weight:650}
+.dash-activity-item small{font-size:10px;color:#8191a7}
+.dash-empty{padding:24px 8px;text-align:center;color:#8191a7;font-size:11px}
+.dash-bottom{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(260px,.8fr);gap:15px}
+.dash-stock{display:flex;flex-direction:column;gap:14px}
+.dash-stock-row{display:grid;grid-template-columns:minmax(90px,1fr) 1.5fr auto;align-items:center;gap:10px;font-size:10px;color:#aebbd0}
+.dash-stock-row .bar{height:7px}
+@media(max-width:1050px){.dash-stats{grid-template-columns:repeat(2,minmax(0,1fr))}.dash-grid,.dash-bottom{grid-template-columns:1fr}}
+@media(max-width:700px){.dash-intro{align-items:flex-start;flex-direction:column;padding:19px}.dash-intro .toolbar{width:100%;justify-content:flex-start}.dash-intro h1{font-size:22px}.dash-stats{gap:8px}.dash-stat{padding:13px}.dash-stat-value{font-size:21px}.dash-chart{gap:4px}.dash-stock-row{grid-template-columns:85px 1fr auto}}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
@@ -117,19 +190,33 @@ function downloadQr(id){const q=qrRows.find(x=>x.id===id),el=document.getElement
 
 function dashboard(){
  const op=operationFilter(),sales=operationSales(),lotsView=op?[op]:db.lots;
- const revenue=sum(sales.filter(s=>s.status!=='Cancelada'),s=>s.total),cost=sum(sales.filter(s=>s.status!=='Cancelada'),saleCost),profit=revenue-cost,visits=db.visits.length,converted=db.visits.filter(v=>v.status==='Comprou').length,conv=visits?Math.round(converted/visits*100):0;
- const cityCounts={};sales.filter(s=>s.status!=='Cancelada').forEach(s=>{let c=s.city||getClient(s.clientId)?.city||'Não informado';cityCounts[c]=(cityCounts[c]||0)+1});
- const topCity=Object.entries(cityCounts).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
- const topProduct={};sales.filter(s=>s.status!=='Cancelada').forEach(s=>{let n=getProduct(s.productId)?.name||s.productName||'Produto';topProduct[n]=(topProduct[n]||0)+Number(s.qty||1)});
- const topP=Object.entries(topProduct).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
- const recent=[...sales].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,5).map(s=>`<tr><td>${esc(s.date)}</td><td>${esc(s.clientName||getClient(s.clientId)?.name||'—')}</td><td>${esc(getProduct(s.productId)?.name||s.productName||'—')}</td><td>${money(s.total)}</td><td>${statusPill(s.status||'Pago')}</td></tr>`);
- const lots=lotsView.slice(-5).reverse().map(l=>`<div class="barrow"><span>${esc(l.name)} · ${esc(getProduct(l.productId)?.name||'')}</span><div class="bar"><i style="width:${l.qty?Math.min(100,available(l)/l.qty*100):0}%"></i></div><strong>${available(l)}/${l.qty}</strong></div>`).join('')||'<div class="muted">Cadastre seu primeiro lote para acompanhar o estoque.</div>';
- return `<div class="pagehead"><div><h1>Visão geral</h1><p>${op?'Indicadores da operação selecionada.':'Resumo consolidado de todas as operações.'}</p></div><div class="toolbar">${operationSelector()}<button class="btn primary" onclick="openModal('sale')">＋ Registrar venda</button></div></div>
- <div class="notice">Esta é a versão inicial: seus dados ficam salvos neste navegador. Use <b>Configurações e backup</b> para exportar cópias. Ainda não há sincronização em nuvem entre dispositivos.</div>
- <div class="cards">${metric('Receita registrada',money(revenue),'Vendas não canceladas')}${metric('Lucro bruto estimado',money(profit),'Receita menos custo dos itens')}${metric('Visitas cadastradas',visits,`${conv}% de conversão registrada`) }${metric('Unidades em estoque',op?available(op):allQty(),'Calculado a partir dos lotes')}</div>
- <div class="layout2"><section class="panel"><h3>Atalhos rápidos</h3><div class="quickgrid"><button class="quick" onclick="openModal('visit')">＋ Nova visita<span>Registrar prospecção</span></button><button class="quick" onclick="openModal('sale')">＋ Nova venda<span>Registrar faturamento</span></button><button class="quick" onclick="openModal('lot')">＋ Novo lote<span>Entrada de estoque</span></button><button class="quick" onclick="openModal('note')">✧ Nova ideia<span>Anotar algo importante</span></button><button class="quick" onclick="openModal('client')">＋ Novo cliente<span>Salvar contato</span></button><button class="quick" onclick="openModal('project')">◈ Novo projeto<span>Organizar uma iniciativa</span></button></div></section>
- <section class="panel"><h3>Indicadores comerciais</h3><div class="barrow"><span>Visitas</span><div class="bar"><i style="width:${Math.min(100,visits?100:0)}%"></i></div><strong>${visits}</strong></div><div class="barrow"><span>Vendas</span><div class="bar"><i style="width:${visits?Math.min(100,db.sales.length/visits*100):0}%"></i></div><strong>${db.sales.length}</strong></div><p class="muted">Cidade com mais vendas: <b>${esc(topCity)}</b></p><p class="muted">Produto mais vendido: <b>${esc(topP)}</b></p></section></div>
- <div class="layout2" style="margin-top:16px"><section class="panel"><h3>Vendas recentes</h3>${table(['Data','Cliente','Produto','Valor','Status'],recent)}</section><section class="panel"><h3>Estoque por lote</h3>${lots}</section></div>`;
+ const validSales=sales.filter(x=>x.status!=='Cancelada');
+ const revenue=sum(validSales,s=>s.total),cost=sum(validSales,saleCost),profit=revenue-cost;
+ const visits=op?db.visits.filter(v=>!v.lotId||String(v.lotId)===String(op.id)).length:db.visits.length;
+ const converted=op?db.visits.filter(v=>(!v.lotId||String(v.lotId)===String(op.id))&&v.status==='Comprou').length:db.visits.filter(v=>v.status==='Comprou').length;
+ const conv=visits?Math.round(converted/visits*100):0;
+ const stock=op?available(op):allQty();
+ const pending=sales.filter(s=>s.status==='Pendente'||s.status==='Parcialmente pago').length;
+ const months=[];
+ for(let i=5;i>=0;i--){const d=new Date();d.setDate(1);d.setMonth(d.getMonth()-i);const key=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0');months.push({key,label:d.toLocaleDateString('pt-BR',{month:'short'}).replace('.',''),value:sum(validSales.filter(s=>(s.date||'').slice(0,7)===key),s=>s.total)});}
+ const maxMonth=Math.max(1,...months.map(m=>m.value));
+ const chart=months.map(m=>`<div class="dash-month"><strong>${money(m.value)}</strong><i style="height:${Math.max(3,m.value/maxMonth*112)}px"></i><span>${esc(m.label)}</span></div>`).join('');
+ const recent=[...sales].sort((a,b)=>(b.date||'').localeCompare(a.date||'')).slice(0,5);
+ const activity=recent.map(s=>`<div class="dash-activity-item"><i class="dash-activity-dot"></i><div><strong>${esc(s.clientName||getClient(s.clientId)?.name||'Venda registrada')}</strong><small>${esc(getProduct(s.productId)?.name||s.productName||'Produto')} · ${esc(s.date||'Sem data')} · ${money(s.total)}</small></div></div>`).join('')||'<div class="dash-empty">Suas movimentações aparecerão aqui quando registrar a primeira venda.</div>';
+ const lots=lotsView.slice(-5).reverse().map(l=>`<div class="dash-stock-row"><span>${esc(l.name)}</span><div class="bar"><i style="width:${l.qty?Math.min(100,available(l)/l.qty*100):0}%"></i></div><strong>${available(l)} / ${l.qty}</strong></div>`).join('')||'<div class="dash-empty">Cadastre seu primeiro lote para acompanhar o estoque.</div>';
+ const topCity={};validSales.forEach(s=>{let c=s.city||getClient(s.clientId)?.city||'Não informado';topCity[c]=(topCity[c]||0)+1});
+ const bestCity=Object.entries(topCity).sort((a,b)=>b[1]-a[1])[0]?.[0]||'—';
+ return `<section class="dash-intro"><div><div class="dash-kicker">SILVER NORTE · CENTRAL</div><h1>Visão geral da operação</h1><p>Acompanhe o desempenho, as vendas e o controle do seu negócio em um só lugar.</p></div><div class="toolbar">${operationSelector()}<button class="btn primary" onclick="openModal('sale')">＋ Registrar venda</button></div></section>
+ <section class="dash-stats">
+ <div class="dash-stat"><div class="dash-stat-top"><span>Receita registrada</span><i class="dash-stat-icon">↗</i></div><div class="dash-stat-value">${money(revenue)}</div><div class="dash-stat-foot">Vendas não canceladas</div></div>
+ <div class="dash-stat"><div class="dash-stat-top"><span>Lucro bruto estimado</span><i class="dash-stat-icon">◈</i></div><div class="dash-stat-value">${money(profit)}</div><div class="dash-stat-foot">Receita menos custo dos itens</div></div>
+ <div class="dash-stat"><div class="dash-stat-top"><span>Visitas comerciais</span><i class="dash-stat-icon">◎</i></div><div class="dash-stat-value">${visits}</div><div class="dash-stat-foot">${conv}% de conversão registrada</div></div>
+ <div class="dash-stat"><div class="dash-stat-top"><span>Unidades em estoque</span><i class="dash-stat-icon">▦</i></div><div class="dash-stat-value">${stock}</div><div class="dash-stat-foot">${pending} venda(s) pendente(s) de pagamento</div></div>
+ </section>
+ <section class="dash-grid"><div class="panel"><div class="dash-panel-head"><h3>Desempenho de vendas</h3><small>Últimos 6 meses · ${op?'operação selecionada':'todas as operações'}</small></div><div class="dash-chart">${chart}</div></div>
+ <div class="panel"><div class="dash-panel-head"><h3>Atividade recente</h3><small>Últimas vendas</small></div><div class="dash-activity">${activity}</div></div></section>
+ <section class="dash-bottom"><div class="panel"><div class="dash-panel-head"><h3>Estoque por lote</h3><small>Disponibilidade atual</small></div><div class="dash-stock">${lots}</div></div>
+ <div class="panel"><div class="dash-panel-head"><h3>Acesso rápido</h3><small>Rotina operacional</small></div><div class="quickgrid"><button class="quick" onclick="openModal('visit')">＋ Nova visita<span>Registrar prospecção</span></button><button class="quick" onclick="openModal('sale')">↗ Nova venda<span>Registrar faturamento</span></button><button class="quick" onclick="openModal('lot')">▦ Novo lote<span>Entrada de estoque</span></button><button class="quick" onclick="openModal('client')">♙ Novo cliente<span>Salvar contato</span></button></div><p class="muted" style="font-size:10px;margin:15px 0 0">Cidade com mais vendas: <b>${esc(bestCity)}</b></p></div></section>`;
 }
 function visitsPage(){let rows=db.visits.slice().sort((a,b)=>(b.date||'').localeCompare(a.date||'')).map(v=>`<tr><td>${esc(v.date)}</td><td>${esc(v.name)}</td><td>${esc(v.city||'—')}</td><td>${esc(v.niche||'—')}</td><td>${statusPill(v.status)}</td><td>${esc(v.next||'—')}</td><td>${rowActions('visit',v)}</td></tr>`);return `<div class="pagehead"><div><h1>Comercial e visitas</h1><p>Registre cada abordagem, resultado e próximo contato.</p></div><button class="btn primary" onclick="openModal('visit')">＋ Nova visita</button></div><div class="cards">${metric('Visitas totais',db.visits.length)}${metric('Compras',db.visits.filter(v=>v.status==='Comprou').length)}${metric('Responsável ausente',db.visits.filter(v=>v.status==='Responsável ausente').length)}${metric('Retornos',db.visits.filter(v=>v.status==='Voltar depois').length)}</div><div class="toolbar"><input class="field search" placeholder="Buscar estabelecimento, cidade ou nicho..." oninput="filterTable(this)"><select class="field" onchange="filterStatus(this)"><option value="">Todos os status</option>${['Não visitado','Responsável ausente','Oferta apresentada','Comprou','Recusou','Voltar depois','Em negociação'].map(x=>`<option>${x}</option>`).join('')}</select></div><div id="filterable">${table(['Data','Estabelecimento','Cidade','Nicho','Situação','Próximo contato','Ações'],rows)}</div>`}
 function clientsPage(){let rows=db.clients.map(c=>`<tr><td>${esc(c.name)}</td><td>${esc(c.city||'—')}</td><td>${esc(c.niche||'—')}</td><td>${esc(c.phone||'—')}</td><td>${db.sales.filter(s=>String(s.clientId)===String(c.id)&&s.status!=='Cancelada').length}</td><td>${rowActions('client',c)}</td></tr>`);return `<div class="pagehead"><div><h1>Clientes e contatos</h1><p>Cadastro centralizado com histórico de compras.</p></div><button class="btn primary" onclick="openModal('client')">＋ Novo cliente</button></div><div class="toolbar"><input class="field search" placeholder="Buscar cliente..." oninput="filterTable(this)"></div>${table(['Nome','Cidade','Nicho','Telefone','Vendas','Ações'],rows)}`}
