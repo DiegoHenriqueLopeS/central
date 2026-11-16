@@ -40,7 +40,7 @@ body{background:radial-gradient(ellipse at 78% -12%,#1b2a45 0,transparent 38%),v
 th{background:#151f2e;color:#94a5bd;font-size:10px;letter-spacing:.8px}
 td{color:#d2dbea;border-color:#202d3d}
 tr:hover td{background:#ffffff05}
-.pill{border:1px solid #314158;background:#1a2636}
+.pill{border:1px solid #314158;background:#1a2636}.pill.blue{color:#91c8ff;background:#172d43;border-color:#294b6b}.pill.purple{color:#c6a7ff;background:#2b2140;border-color:#49366b}.pill.orange{color:#ffb77c;background:#3b2a1d;border-color:#62432b}
 .quick{border-radius:12px;background:#121e2c;border-color:#29394f;padding:15px;transition:.18s}
 .quick:hover{background:#1a2a40;border-color:#647db7;transform:translateY(-2px)}
 .quick span{font-size:11px;color:#91a1b7}
@@ -170,7 +170,7 @@ function saleProfit(s){return Number(s.total||0)-saleCost(s)}
 function soldFromLot(lotId){return sum(db.sales.filter(s=>String(s.lotId)===String(lotId)&&s.status!=='Cancelada'),s=>s.qty)}
 function available(l){return Math.max(0,Number(l.qty||0)-soldFromLot(l.id))}
 function allQty(){return sum(db.lots,available)}
-function statusPill(s){let cls=/venda realizada|pago|conclu/i.test(s)?'green':/sem interesse|cancel|sem resposta/i.test(s)?'red':/ausente|retorno|proposta|pendente|aguardando/i.test(s)?'yellow':/demonstração|contato conseguido|respondeu|mensagem enviada|visita agendada/i.test(s)?'green':'';return `<span class="pill ${cls}">${esc(s||'—')}</span>`}
+function statusPill(s){const colors={'Não visitado':'','Mensagem enviada':'blue','Aguardando resposta':'yellow','Respondeu no WhatsApp':'blue','Demonstração enviada':'purple','Sem resposta':'','Visita agendada':'blue','Visitado':'blue','Responsável ausente':'yellow','Contato conseguido':'blue','Demonstração realizada':'purple','Proposta apresentada':'orange','Retorno agendado':'yellow','Venda realizada':'green','Sem interesse':'red'};let cls=Object.prototype.hasOwnProperty.call(colors,s)?colors[s]:(/pago|conclu/i.test(s)?'green':/cancel|sem interesse/i.test(s)?'red':/pendente|aguardando/i.test(s)?'yellow':'');return `<span class="pill ${cls}">${esc(s||'—')}</span>`}
 function metric(label,value,sub=''){return `<div class="card"><div class="metric-label">${label}</div><div class="metric">${value}</div><div class="metric-sub">${sub}</div></div>`}
 function table(headers,rows){return `<div class="tablewrap"><table><thead><tr>${headers.map(h=>`<th>${h}</th>`).join('')}</tr></thead><tbody>${rows.length?rows.join(''):`<tr><td class="empty" colspan="${headers.length}">Nenhum registro ainda. Use “Adicionar” para começar.</td></tr>`}</tbody></table></div>`}
 function rowActions(kind,item){return `<button class="btn small" onclick="editRecord('${kind}',${item.id})">Editar</button> <button class="btn small danger" onclick="deleteRecord('${kind}',${item.id})">Excluir</button>`}
